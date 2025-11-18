@@ -1,7 +1,8 @@
-import { createContext, useContext, useEffect, useState, ReactNode } from 'react'
+import { createContext, useContext, useEffect, useState } from 'react'
+import type { ReactNode } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { supabase } from '@/lib/supabase'
-import type { Organization, OrganizationUser, UserRole } from '@/types/database.types'
+import type { Organization, UserRole } from '@/types/database.types'
 
 interface OrganizationContextType {
   organization: Organization | null
