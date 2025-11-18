@@ -1,0 +1,55 @@
+================================================================================
+APLICAR MIGRACIÓN MULTI-TENANT - PASO A PASO
+================================================================================
+
+1. Abre este enlace en tu navegador:
+   https://app.supabase.com/project/oiulcqkdlzwtghdvajgh/sql/new
+
+2. Se abrirá el SQL Editor de Supabase
+
+3. Copia TODO el contenido del archivo:
+   supabase/migrations/002_multi_tenant_schema.sql
+
+4. Pégalo en el editor SQL
+
+5. Haz clic en el botón "Run" (o presiona Ctrl+Enter)
+
+6. Espera a que termine (verás "Success" en la parte inferior)
+
+7. Verifica que funcionó:
+   - Ve a "Table Editor" en el menú lateral
+   - Deberías ver 6 tablas nuevas:
+     * organizations (con 2 filas: Future AI, Binovo)
+     * organization_users
+     * products
+     * need_types
+     * leads
+     * workflow_config
+
+================================================================================
+¿QUÉ HACE ESTA MIGRACIÓN?
+================================================================================
+
+✓ Crea el esquema multi-tenant completo
+✓ Todas las tablas incluyen organization_id
+✓ Configura Row Level Security (RLS) para aislamiento de datos
+✓ Crea función helper: auth.user_organization_id()
+✓ Define roles: owner/admin/user/viewer
+✓ Crea 2 organizaciones de prueba
+✓ Configura políticas de acceso basadas en roles
+
+================================================================================
+DESPUÉS DE APLICAR
+================================================================================
+
+Prueba el signup en tu app:
+http://localhost:5173/signup
+
+Cuando te registres:
+- Se creará tu cuenta de usuario
+- Se creará tu organización
+- Serás el 'owner'
+- Se crearán datos iniciales
+
+¡Todo listo para empezar a desarrollar!
+================================================================================
