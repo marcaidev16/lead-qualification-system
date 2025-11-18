@@ -1,10 +1,16 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import { testSupabaseConnection } from './lib/test-supabase'
 
 function App() {
   const [count, setCount] = useState(0)
+
+  // Test Supabase connection on mount
+  useEffect(() => {
+    testSupabaseConnection()
+  }, [])
 
   return (
     <>
